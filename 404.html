@@ -1413,6 +1413,10 @@ html[dir="rtl"] .gt-bar{transform-origin:right center}
 .ax .ab-end>div:first-child b{font-size:1.4rem}
 .ax .ab-end span{color:rgba(255,255,255,.88)}
 .ax .ab-end .btn{position:relative;background:#fff;color:var(--brand2);border:0;font-weight:700;box-shadow:0 10px 22px rgba(0,0,0,.15)}.ax .ab-end .btn .ico{color:var(--brand)}
+.ab-go{position:relative;display:flex;flex-direction:column;gap:10px;margin:0;margin-inline-start:auto;flex:none}.ab-go .btn{margin:0!important;justify-content:center}
+.ax .ab-end .ab-go .btn.ab-pres{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.45);box-shadow:none}.ax .ab-end .ab-go .btn.ab-pres .ico{color:#ffd98a}.ax .ab-end .ab-go .btn.ab-pres:hover{background:rgba(255,255,255,.24)}
+@media (max-width:560px){.ab-go{margin:0;width:100%}}
+body.print-about .ab-go{display:none!important}
 
 /* بطل الرئيسية التفاعلي (بنمط صفحة عن المشروع) */
 .hx{--gx:50%;--gy:50%;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:30px;min-height:500px;padding:46px 44px;border-radius:32px;background-size:200% 200%;box-shadow:0 26px 54px rgba(12,111,130,.28)}
@@ -2294,7 +2298,7 @@ function aboutPage(){
   ${S('tech',SH('08','البنية التقنية','رحلة البيانات من جهاز المستخدم إلى قاعدة البيانات، محمية بالصلاحيات في كل خطوة.','كيف بُنيت؟')+`<div class="ax-arch"><div class="ax-wire" aria-hidden="true"><span></span><i></i><i style="--o:1.3s"></i><i style="--o:2.6s"></i></div>${stack.map(([i,t,r,d,ch],k)=>`<div class="ax-nd ax-rv" data-rv="up" style="--d:${k*.12}s"><span class="ax-ndi"><i>${ic(i)}</i><em>${k+1}</em></span><small>${r}</small><b>${t}</b><p>${d}</p><div class="ax-chips">${ch.map(c=>`<span>${c}</span>`).join('')}</div></div>`).join('')}</div>
    <div class="ax-sec ax-rv" data-rv="up">${[['shield2','الزائر يستعرض فقط'],['check','المحرر يعدّل بعد تسجيل الدخول'],['bolt','التحديث يصل للجميع فورًا']].map(([i,t])=>`<span>${ic(i)}${t}</span>`).join('')}</div>`)}
   ${S('faq',SH('09','أسئلة متوقعة','إجابات مختصرة لما يُسأل عنه عادة عند عرض البوابة.','استفسارات')+`<div class="ab-faq">${faq.map(([q,a],k)=>`<details class="ax-rv" data-rv="up" style="--d:${(k%2)*.08}s"${k?'':' open'}><summary>${ic('help')}<b>${q}</b></summary><p>${a}</p></details>`).join('')}</div>`)}
-  <section class="ab-end ax-rv" data-rv="up"><div><small>إعداد وتطوير</small><b>أ/ عبدالعزيز بن يوسف المديني</b><span>منسق التقويم الذاتي • مدرسة لبيد بن ربيعة المتوسطة</span></div><div><small>بإشراف</small><b>أ/ خالد بن عبدالرحمن الباش</b><span>مدير المدرسة</span></div><a class="btn pri" href="#home">${ic('home')} ادخل إلى البوابة</a></section>
+  <section class="ab-end ax-rv" data-rv="up"><div><small>إعداد وتطوير</small><b>أ/ عبدالعزيز بن يوسف المديني</b><span>منسق التقويم الذاتي • مدرسة لبيد بن ربيعة المتوسطة</span></div><div><small>بإشراف</small><b>أ/ خالد بن عبدالرحمن الباش</b><span>مدير المدرسة</span></div><p class="ab-go"><a class="btn pri" href="#home">${ic('home')} ادخل إلى البوابة</a><a class="btn pri ab-pres" href="present.html" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M10 8l4 2-4 2zM12 16v4M8 20h8"/></svg> العرض التعريفي</a></p></section>
   </div>`}
 function bindAbout(){
   const v=document.getElementById('view'),toc=v.querySelector('.ab-toc');if(!toc)return;const hd=document.querySelector('header');
